@@ -1,0 +1,207 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: whitesmoke;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+header {
+  background-color: royalblue;
+  padding: 1em;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 700;
+  color: whitesmoke;
+  max-width: 70.5rem;
+  margin-inline: auto;
+}
+
+main {
+  padding: 1em;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  border: 0;
+  font-weight: 500;
+  font-size: 1.25rem;
+  background-color: transparent;
+  padding: 0.25em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn--add {
+  margin-inline: auto;
+  font-size: 1.5rem;
+  margin-block: 1em;
+}
+
+.btn--add:hover {
+  transform: scale(1.1);
+}
+
+.btn--remove {
+  background-color: rgb(255, 113, 113);
+}
+
+.btn--remove:hover,
+.btn--submit:hover {
+  filter: brightness(1.1);
+}
+
+.btn--submit {
+  background-color: royalblue;
+  color: aliceblue;
+}
+
+.books__list {
+  max-width: 70.5rem;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75em;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5em;
+  font-size: 1.25rem;
+  background-color: #fff;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 0.1em 0.3em rgb(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  border-radius: 0.5em;
+  gap: 1em;
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  background-color: whitesmoke;
+  padding: 1.75em;
+  transition: all 0.3s ease-out;
+}
+
+.btn[aria-expanded="true"] + form {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.backdrop--active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+input {
+  border: 1px solid rgb(0, 0, 0, 0.25);
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+}
+
+label {
+  display: block;
+  position: relative;
+}

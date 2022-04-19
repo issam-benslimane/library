@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" type="module"></script>
+    <title>library</title>
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <header>
+      <div class="logo">library</div>
+    </header>
+
+    <main>
+      <button class="btn btn--add" aria-expanded="false" aria-controls="form">
+        + Add book
+      </button>
+      <form action="/" method="post" id="form">
+        <h2>Add new book</h2>
+        <label for="title"
+          ><span class="sr-only">title</span
+          ><input
+            type="text"
+            name="title"
+            id="title"
+            pattern="[a-zA-z]+"
+            required
+            placeholder="Title"
+        /></label>
+        <label for="author"
+          ><span class="sr-only">author</span
+          ><input
+            type="text"
+            name="author"
+            id="author"
+            pattern="[a-zA-z]+"
+            required
+            placeholder="Author"
+        /></label>
+        <label for="pages"
+          ><span class="sr-only">pages</span
+          ><input
+            type="number"
+            name="pages"
+            id="pages"
+            min="5"
+            max="1000"
+            required
+            placeholder="Pages"
+        /></label>
+        <label for="isRead"
+          >Have you read it? <input type="checkbox" name="isRead" id="isRead"
+        /></label>
+        <button class="btn btn--submit">Submit</button>
+      </form>
+      <ul class="books__list"></ul>
+    </main>
+  </body>
+</html>
